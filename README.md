@@ -1,4 +1,4 @@
-# AI Chatbot Frontend — Padvinder
+# AI Chatbot Frontend: Padvinder
 
 Frontend van de **Padvinder**-chatbot voor het *Sociaal Knooppunt* (gemeente
 Boxtel, Esch, Lennisheuvel en Liempde), gebouwd als schoolproject
@@ -8,7 +8,7 @@ Padvinder is een React + Vite single-page applicatie die de bezoeker via een
 vriendelijke **wizard** door de zes pijlers van het **Leefstijlroer** leidt en op
 basis daarvan passende activiteiten en voorzieningen in de buurt voorstelt.
 
-> ### 📦 Dit is een overdrachtsdocument
+> ### 📦 Overdracht
 >
 > Dit prototype (proof of concept) is gebouwd om **overgedragen** te worden aan
 > een volgende projectgroep die het verder optimaliseert en opschaalt. Deze
@@ -18,18 +18,18 @@ basis daarvan passende activiteiten en voorzieningen in de buurt voorstelt.
 > **[Architectuur](#architectuur-as-built)** en **[Voor de volgende
 > groep](#voor-de-volgende-groep)**.
 
-> Dit deel van het project — het **ontwerp en de bouw van de frontend** — is mijn
+> Dit deel van het project, het **ontwerp en de bouw van de frontend**, is mijn
 > (Sahel Nawabi) bijdrage aan het groepsproject. De code is overgenomen uit de
 > [gedeelde groepsrepo](https://github.com/Tutai-Tran/Fontys-AI-chatbot) en hier
 > als zelfstandige frontend-repo samengebracht. De onderbouwing staat in de
-> analyse- en adviesdocumenten — zie [Onderbouwende
+> analyse- en adviesdocumenten. Zie [Onderbouwende
 > documenten](#onderbouwende-documenten).
 
 ---
 
 ## Inhoud
 
-- [Videodemo](#videodemo--volledige-ux-tour)
+- [Videodemo](#videodemo-volledige-ux-tour)
 - [Schermen (mobiel)](#schermen-mobiel)
 - [Functionaliteit](#functionaliteit)
 - [Technische stack](#technische-stack)
@@ -47,7 +47,7 @@ basis daarvan passende activiteiten en voorzieningen in de buurt voorstelt.
 
 ---
 
-## Videodemo — volledige UX-tour
+## Videodemo: volledige UX-tour
 
 Een doorlopende opname van de complete frontend: alle drie de startroutes en
 álle schermen, opgenomen met de volledige stack lokaal actief (frontend +
@@ -100,7 +100,7 @@ mobiele interface met volledige-breedte knoppen.
 - **Aparte mobiele interface** onder 600px breedte.
 - **Toegankelijkheid (a11y)**: ontworpen op WCAG 2.2 AA (kleurcontrast,
   toetsenbordnavigatie, focusbeheer, grote-tekst-modus).
-- **Privacy by design**: alle gespreksgegevens blijven in het geheugen — er wordt
+- **Privacy by design**: alle gespreksgegevens blijven in het geheugen. Er wordt
   niets in `localStorage` of `sessionStorage` opgeslagen.
 
 ## Technische stack
@@ -108,14 +108,14 @@ mobiele interface met volledige-breedte knoppen.
 - **React 19**
 - **Vite 8** (dev-server + productie-build)
 - **ESLint 10** voor linting
-- Geen extra UI-frameworks of state-libraries — eigen componenten, eigen CSS
+- Geen extra UI-frameworks of state-libraries, alleen eigen componenten, eigen CSS
   (`src/styles/padvinder.css`) en React's ingebouwde `useReducer` + `useEffect`.
 
 ---
 
 ## Aan de slag
 
-**Vereisten:** **Node.js 20+** (LTS aanbevolen — Vite 8 vereist Node ≥ 20.19) en
+**Vereisten:** **Node.js 20+** (LTS aanbevolen; Vite 8 vereist Node ≥ 20.19) en
 **npm**.
 
 ```bash
@@ -125,7 +125,7 @@ npm install
 # 2. Ontwikkelserver starten  →  http://localhost:5173/demo/
 npm run dev
 
-# Productiebuild maken (output: ../app/static/demo — zie hieronder)
+# Productiebuild maken (output: ../app/static/demo, zie hieronder)
 npm run build
 
 # Build lokaal bekijken
@@ -144,12 +144,12 @@ npm run lint
 
 ### Met of zonder backend?
 
-- **Zonder backend** werkt de interface (de hele wizard, navigatie, validatie) —
+- **Zonder backend** werkt de interface (de hele wizard, navigatie, validatie),
   maar bij het zoeken naar activiteiten komt er een netwerkfout en zie je het
   *geen-match*-scherm.
 - **Voor de volledige flow** (echte activiteiten + crisisdetectie) draai je de
   backend lokaal op `http://localhost:8000`. De Vite-dev-server proxyt de
-  API-aanroepen daarheen — zie
+  API-aanroepen daarheen. Zie
   [Backend-koppeling](#backend-koppeling--datacontract). Hoe je de backend +
   ChromaDB + Ollama opstart staat in de [groepsrepo](https://github.com/Tutai-Tran/Fontys-AI-chatbot).
 
@@ -200,7 +200,7 @@ src/
 
 1. **Eén centrale state.** `App.jsx` houdt de volledige gespreks-state in één
    `useReducer` (`reducer` + `INITIAL` in `state/flow.js`). Alle schermen krijgen
-   `state` + `dispatch` als props — er is geen losse component-state voor
+   `state` + `dispatch` als props; er is geen losse component-state voor
    gespreksgegevens. Dit is bewust licht gehouden (geen Redux/Zustand) voor de
    overdraagbaarheid.
 2. **De step-machine.** `buildSteps(state)` leidt uit `entryType` en de scores
@@ -217,7 +217,7 @@ src/
    `/chat/stream` en leest de SSE-stream. Komt er een `crisis`-event → crisis-
    scherm; komen er `activities` → resultaten (met `buildReasoning()` als uitleg).
 5. **Desktop vs mobiel.** `useIsMobile()` (600px) bepaalt of `App` de
-   desktop-`Screen` of de `MobileScreen` rendert — beide lezen exact dezelfde
+   desktop-`Screen` of de `MobileScreen` rendert; beide lezen exact dezelfde
    state.
 
 ## De gespreks-flow en de drie routes
@@ -232,16 +232,16 @@ De startkeuze (`entryType`) bepaalt welke route de bezoeker loopt:
 
 Daarnaast zijn er **alternatieve uitkomsten** (`screens/alt.jsx`):
 
-- **Crisis** — backend stuurt een `crisis`-event; activiteiten worden verborgen.
-- **Lage score** — in `nog_niet` met álle scores laag → rustig huisarts-advies.
-- **Geen match / fout** — geen activiteiten terug → inloop-/contactsuggestie.
-- **Overslaan** — bevestigingstussenscherm wanneer een vraag wordt overgeslagen.
+- **Crisis**: backend stuurt een `crisis`-event; activiteiten worden verborgen.
+- **Lage score**: in `nog_niet` met álle scores laag → rustig huisarts-advies.
+- **Geen match / fout**: geen activiteiten terug → inloop-/contactsuggestie.
+- **Overslaan**: bevestigingstussenscherm wanneer een vraag wordt overgeslagen.
 
 ## Backend-koppeling & datacontract
 
 De frontend praat via een dunne REST/JSON-laag (`src/lib/apiClient.js`) met de
 **Sociaal Knooppunt**-backend (FastAPI). Tijdens het ontwikkelen proxyt de
-Vite-dev-server deze paden door naar `http://localhost:8000` — zie de
+Vite-dev-server deze paden door naar `http://localhost:8000`; zie de
 `apiPaths`-lijst in `vite.config.js`:
 
 | Endpoint | Gebruikt voor |
@@ -268,7 +268,7 @@ De anonieme sessie-id wordt **in-memory** aangemaakt (`crypto.randomUUID`) en al
 > `buildQuery.js` stelt de "Waarom past dit bij jou?"-uitleg samen uit de
 > *frontend*-state (gekozen voorkeuren, laagste score, wijken in het resultaat).
 > Het advies was om de backend hier een gestructureerd `reasoning`-veld voor te
-> laten leveren (mini-ADR) — dat staat nog open. Zie
+> laten leveren (mini-ADR); dat staat nog open. Zie
 > [Voor de volgende groep](#voor-de-volgende-groep).
 
 ---
@@ -287,9 +287,9 @@ bronnen staat in de [documenten](#onderbouwende-documenten).
 | 4 | **Toegankelijkheid als** *definition of done* | De doelgroep (15–99 jaar, laaggeletterden, ouderen, mensen met beperkingen) maakt WCAG 2.2 AA een vereiste, geen extra. Zie [Toegankelijkheid](#toegankelijkheid). |
 | 5 | **B1-taalniveau in álle microcopy** | Niet alleen chatberichten, maar ook knoplabels, foutmeldingen en placeholders op B1, met dezelfde verboden-/voorkeurswoorden als de bot (system-prompt V2.1). Eén consistente toon voorkomt dat de doelgroep afhaakt. |
 | 6 | **Sliders 0–100 conform ADR-001** | `<input type="range">` als basis → pijltjestoetsen en schermlezers werken vanzelf. 0 = ongelukkig, 100 = gelukkig; score < 40 = *aandachtspunt* → triggert een vervolgvraag. |
-| 7 | **Klein, strikt datacontract** | Houdt de frontend losgekoppeld van het taalmodel en laat beide teams parallel werken. De UI toont uitsluitend velden die echt in `activities.json` bestaan — geen verzonnen details. |
+| 7 | **Klein, strikt datacontract** | Houdt de frontend losgekoppeld van het taalmodel en laat beide teams parallel werken. De UI toont uitsluitend velden die echt in `activities.json` bestaan, geen verzonnen details. |
 | 8 | **Privacy zichtbaar in de UI** | Anoniem gesprek (alleen in-memory UUID), geen tracking, minimale gegevens (geen BSN/geboortedatum), zichtbare reset-knop. Zie [Privacy](#privacy-by-design). |
-| 9 | **Transparantie van matching** | Een reasoning-paneel onder de drie activiteiten laat zien *waarom* iets wordt voorgesteld — eis van Carla en van de AVG-checklist (§7). Voorkomt dat een aanbeveling voelt als "de computer beslist". |
+| 9 | **Transparantie van matching** | Een reasoning-paneel onder de drie activiteiten laat zien *waarom* iets wordt voorgesteld, een eis van Carla en van de AVG-checklist (§7). Voorkomt dat een aanbeveling voelt als "de computer beslist". |
 | 10 | **Dedicated crisis-component** | Bij een server-side crisis-signaal een rustige doorverwijzing (113 / huisarts / Veilig Thuis) en géén activiteiten. De frontend genereert zelf geen crisis-tekst. |
 
 ## Toegankelijkheid
@@ -316,7 +316,7 @@ op **WCAG 2.2 AA**. Concreet in de code:
   Er wordt **niets** in `localStorage`/`sessionStorage` gezet.
 - **Anonieme sessie.** Enige identifier is een in-memory UUID (`apiClient.js`),
   meegestuurd als `X-Session-Id`. Verdwijnt bij refresh.
-- **Dataminimalisatie.** Geen BSN, geen geboortedatum — alleen leeftijd en een
+- **Dataminimalisatie.** Geen BSN, geen geboortedatum, alleen leeftijd en een
   4-cijferige postcode (frontend-validatie vóór verzending). Account en contact
   zijn **opt-in** en standaard uit.
 - **Reset-knop.** Een zichtbare reset wist de volledige sessie-state (`RESET`).
@@ -326,7 +326,7 @@ op **WCAG 2.2 AA**. Concreet in de code:
 ## Verschillen tussen advies en bouw
 
 Eerlijk voor de overdracht: het gebouwde prototype wijkt op enkele punten af van
-het analyse-/adviesdocument. Dat is normaal — de analyse is vooraf geschreven,
+het analyse-/adviesdocument. Dat is normaal: de analyse is vooraf geschreven en
 de bouw bracht voortschrijdend inzicht. De belangrijkste afwijkingen:
 
 | Onderwerp | Advies/analyse | Wat er gebouwd is | Reden |
@@ -363,8 +363,8 @@ en de stand van de code):
 
 **Productie-aandachtspunten (nu buiten scope)**
 - [ ] Volledige juridische AVG-uitwerking (DPIA, verwerkersovereenkomsten),
-      encryptie at rest — vóór ingebruikname.
-- [ ] Meertaligheid, native apps, productie-infrastructuur — bewust buiten dit PoC.
+      encryptie at rest, vóór ingebruikname.
+- [ ] Meertaligheid, native apps, productie-infrastructuur, bewust buiten dit PoC.
 
 **Waar te beginnen in de code**
 - De flow snappen → lees `src/state/flow.js` (de step-machine is het hart).
@@ -376,21 +376,21 @@ en de stand van de code):
 ## Onderbouwende documenten
 
 De ontwerp- en bouwkeuzes zijn onderbouwd in vier documenten (DOT Framework,
-HBO-i), opgesteld door Sahel Nawabi:
+HBO-i), opgesteld door Sahel Nawabi. De PDF's staan in deze repo onder
+[`docs/analyse/`](docs/analyse):
 
-- **Analysedocument V3 — Frontend** — onderzoek (Library/Field/Workshop/Lab/
-  Showroom): doelgroep, Leefstijlroer, WCAG 2.2 AA, B1, conversational UI,
-  componentstructuur, state-model en datacontract.
-- **Adviesrapport V3 — Frontend** — de concrete aanbevelingen die uit de analyse
-  volgen (de elf kernadviezen, risico's en vervolgstappen).
-- **Verantwoording Analyse** en **Verantwoording Advies** — verantwoording van de
-  gevolgde aanpak en keuzes.
-
-> De PDF's zelf zitten in de projectomgeving van het groepsproject (deliverables),
-> niet in deze repo. Vraag ze op bij het projectteam voor de volledige
-> onderbouwing en bronvermelding.
+- [**Analysedocument V3 (Frontend)**](docs/analyse/Analyse_Frontend_V3.pdf):
+  het onderzoek (Library/Field/Workshop/Lab/Showroom) naar doelgroep,
+  Leefstijlroer, WCAG 2.2 AA, B1, conversational UI, componentstructuur,
+  state-model en datacontract.
+- [**Adviesrapport V3 (Frontend)**](docs/analyse/Advies_Frontend_V3.pdf):
+  de concrete aanbevelingen die uit de analyse volgen (de elf kernadviezen,
+  risico's en vervolgstappen).
+- [**Verantwoording Analyse**](docs/analyse/Verantwoording_Analyse_Frontend.pdf)
+  en [**Verantwoording Advies**](docs/analyse/Verantwoording_Advies_Frontend.pdf):
+  verantwoording van de gevolgde aanpak en keuzes.
 
 ## Licentie
 
-Schoolproject — gemaakt in het kader van een Fontys IT-groepsproject (Sociaal
+Schoolproject, gemaakt in het kader van een Fontys IT-groepsproject (Sociaal
 Knooppunt / Renders Education). Geen commerciële licentie.
