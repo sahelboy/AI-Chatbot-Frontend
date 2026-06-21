@@ -10,6 +10,44 @@ voorzieningen voorstelt.
 > bijdrage aan het groepsproject. De code is overgenomen uit de gedeelde
 > groepsrepo en hier als zelfstandige frontend-repo samengebracht.
 
+## Schermen
+
+De onderstaande screenshots zijn gemaakt van de draaiende applicatie, met de
+backend (FastAPI + ChromaDB + Ollama) lokaal actief, zodat ook de echte
+activiteiten-resultaten kloppen.
+
+### Welkomstscherm
+
+![Welkomstscherm van Padvinder](docs/screenshots/01-welkom.png)
+
+### Privacy & toestemming
+
+![Uitleg over privacy en wat er met je antwoorden gebeurt](docs/screenshots/02-privacy.png)
+
+### Startkeuze (drie routes)
+
+![Keuze tussen de drie startroutes](docs/screenshots/03-startkeuze.png)
+
+### Leefstijlroer — pijler met slider
+
+![Sliderscherm voor de pijler Bewegen, met de zes pijlers in de voortgangsbalk](docs/screenshots/04-pijler-bewegen.png)
+
+### Resultaten
+
+De drie voorgestelde activiteiten komen live uit de backend (semantisch zoeken in
+de activiteitendataset), met een korte uitleg waarom ze passen.
+
+![Resultatenscherm met drie passende activiteiten](docs/screenshots/05-resultaten.png)
+
+### Mobiele weergave
+
+Onder 600px breedte schakelt de app automatisch naar een aparte mobiele
+interface met volledige-breedte knoppen.
+
+| Welkom (mobiel) | Privacy (mobiel) |
+|:---:|:---:|
+| ![Mobiel welkomstscherm](docs/screenshots/06-mobiel-welkom.png) | ![Mobiel privacyscherm](docs/screenshots/07-mobiel-vervolg.png) |
+
 ## Functionaliteit
 
 - **Wizard-flow** door de zes leefstijlpijlers: Bewegen, Voeding, Ontspanning,
