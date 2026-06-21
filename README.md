@@ -10,9 +10,31 @@ voorzieningen voorstelt.
 > bijdrage aan het groepsproject. De code is overgenomen uit de gedeelde
 > groepsrepo en hier als zelfstandige frontend-repo samengebracht.
 
+## Videodemo — volledige UX-tour
+
+Een doorlopende opname van de complete frontend: alle drie de startroutes en
+álle schermen, opgenomen met de volledige stack lokaal actief (frontend +
+FastAPI/ChromaDB/Ollama-backend), zodat ook de echte resultaten kloppen.
+
+<video src="https://raw.githubusercontent.com/sahelboy/AI-Chatbot-Frontend/main/docs/padvinder-ux-tour.mp4" controls muted width="100%"></video>
+
+> Speelt de video hierboven niet af in je browser?
+> **[▶️ Bekijk de UX-tour (MP4)](docs/padvinder-ux-tour.mp4)** — klik om hem te openen.
+
+**Hoofdstukken (±1:40):**
+
+| Tijd | Wat je ziet |
+|------|-------------|
+| 0:00 | Welkom, privacy & startkeuze → route **"Nee, ik weet het nog niet"** (volledige leefstijlscan): sliders, middelen, samenvatting, onderwerp, profiel, resultaten, activiteit kiezen, contact, account aanmaken, afsluiting |
+| 0:28 | **Lage scores**: vervolgvragen, een vraag overslaan, en het huisarts-advies (lage-score-scherm) |
+| 0:50 | Route **"Ja, ik weet precies wat ik wil"**: directe vraag → resultaten |
+| 1:00 | **Crisisdetectie** en doorverwijzing (112 / 113 / Veilig Thuis) |
+| 1:09 | Route **"Ik heb een idee"**: onderwerpen kiezen → vervolgvragen → resultaten |
+| 1:22 | **Geen match** → inlooplocatie → contact |
+
 ## Schermen
 
-De onderstaande screenshots zijn gemaakt van de draaiende applicatie, met de
+Losse screenshots van de belangrijkste schermen, eveneens gemaakt met de
 backend (FastAPI + ChromaDB + Ollama) lokaal actief, zodat ook de echte
 activiteiten-resultaten kloppen.
 
