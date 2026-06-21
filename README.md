@@ -16,11 +16,11 @@ Een doorlopende opname van de complete frontend: alle drie de startroutes en
 álle schermen, opgenomen met de volledige stack lokaal actief (frontend +
 FastAPI/ChromaDB/Ollama-backend), zodat ook de echte resultaten kloppen.
 
-[![Volledige UX-tour van de Padvinder-frontend](docs/padvinder-ux-tour.gif)](docs/padvinder-ux-tour.mp4)
+https://github.com/user-attachments/assets/edc9d355-71a5-4fd3-aaea-6c16697df386
 
-> De animatie hierboven speelt automatisch af. **Klik erop voor de scherpe
-> HD-versie met afspeelknoppen** (MP4), of bekijk/download hem via de
-> [release](https://github.com/sahelboy/AI-Chatbot-Frontend/releases/download/v1.0-demo/padvinder-ux-tour.mp4).
+> Speelt de speler hierboven niet af? Bekijk de video dan via de
+> [release](https://github.com/sahelboy/AI-Chatbot-Frontend/releases/download/v1.0-demo/padvinder-ux-tour.mp4)
+> of open [`docs/padvinder-ux-tour.mp4`](docs/padvinder-ux-tour.mp4) in de repo.
 
 **Hoofdstukken (±1:40):**
 
